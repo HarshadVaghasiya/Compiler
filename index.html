@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
+    </link>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js">
+
+    </script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js">
+        </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jshint/2.11.0/jshint.js">
+    </script>
+    <title>editor</title>
+</head>
+
+<body>
+
+    <textarea name="code" id="code" cols="30" rows="10"></textarea>
+    <div name="code" id="my-div" style="height: 100px;width: 500px;"></div>
+
+
+    <script>
+        // var myTextArea = document.getElementById("code")
+        // var myCodeMirror = CodeMirror.fromTextArea(myTextArea);
+        // myCodeMirror.setSize(1000, 300);
+        // myCodeMirror.theme("monokai");
+
+        CodeMirror(document.querySelector('body'), {
+            lineNumbers: true,
+            tabSize: 6,
+            value: 'console.log("Hello, World");',
+            theme: 'monokai',
+
+        });
+
+    </script>
+
+</body>
+
+</html>
