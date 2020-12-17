@@ -4,43 +4,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
-    </link>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="codemirror/theme/monokai.css">
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="codemirror/theme/3024-day.css">
+    <link rel="stylesheet" href="codemirror/theme/3024-night.css">
+    <link rel="stylesheet" href="codemirror/theme/abcdef.css">
+    <link rel="stylesheet" href="codemirror/theme/ambiance.css">
+    <link rel="stylesheet" href="codemirror/theme/ayu-dark.css">
+    <link rel="stylesheet" href="codemirror/theme/ayu-mirage.css">
+    <link rel="stylesheet" href="codemirror/theme/base16-dark.css">
+    <link rel="stylesheet" href="codemirror/theme/bespin.css">
+    <link rel="stylesheet" href="codemirror/theme/base16-light.css">
+    <link rel="stylesheet" href="codemirror/theme/blackboard.css">
+    <link rel="stylesheet" href="codemirror/theme/cobalt.css">
+    <link rel="stylesheet" href="codemirror/theme/colorforth.css">
+    <link rel="stylesheet" href="codemirror/theme/dracula.css">
+    <link rel="stylesheet" href="codemirror/theme/duotone-dark.css">
+    <link rel="stylesheet" href="codemirror/theme/duotone-light.css">
+    <link rel="stylesheet" href="codemirror/theme/eclipse.css">
+    <link rel="stylesheet" href="codemirror/theme/elegant.css">
+    <link rel="stylesheet" href="codemirror/theme/erlang-dark.css">
+    <link rel="stylesheet" href="codemirror/theme/gruvbox-dark.css">
+    <link rel="stylesheet" href="codemirror/theme/hopscotch.css">
+    <link rel="stylesheet" href="codemirror/theme/icecoder.css">
+    <link rel="stylesheet" href="codemirror/theme/isotope.css">
+    <link rel="stylesheet" href="codemirror/theme/lesser-dark.css">
+    <link rel="stylesheet" href="codemirror/theme/liquibyte.css">
+    <link rel="stylesheet" href="codemirror/theme/lucario.css">
+    <link rel="stylesheet" href="codemirror/theme/material.css">
+    <link rel="stylesheet" href="codemirror/theme/material-darker.css">
+    <link rel="stylesheet" href="codemirror/theme/material-palenight.css">
+    <link rel="stylesheet" href="codemirror/theme/material-ocean.css">
+    <link rel="stylesheet" href="codemirror/theme/mbo.css">
+    <link rel="stylesheet" href="codemirror/theme/mdn-like.css">
+    <link rel="stylesheet" href="codemirror/theme/midnight.css">
+    <link rel="stylesheet" href="codemirror/theme/monokai.css">
+    <link rel="stylesheet" href="codemirror/theme/moxer.css">
+    <link rel="stylesheet" href="codemirror/theme/neat.css">
+    <link rel="stylesheet" href="codemirror/theme/neo.css">
+    <link rel="stylesheet" href="codemirror/theme/night.css">
+    <link rel="stylesheet" href="codemirror/theme/nord.css">
+    <link rel="stylesheet" href="codemirror/theme/oceanic-next.css">
+    <link rel="stylesheet" href="codemirror/theme/panda-syntax.css">
+    <link rel="stylesheet" href="codemirror/theme/paraiso-dark.css">
+    <link rel="stylesheet" href="codemirror/theme/paraiso-light.css">
+    <link rel="stylesheet" href="codemirror/theme/pastel-on-dark.css">
+    <link rel="stylesheet" href="codemirror/theme/railscasts.css">
+    <link rel="stylesheet" href="codemirror/theme/rubyblue.css">
+    <link rel="stylesheet" href="codemirror/theme/seti.css">
+    <link rel="stylesheet" href="codemirror/theme/shadowfox.css">
+    <link rel="stylesheet" href="codemirror/theme/solarized.css">
+    <link rel="stylesheet" href="codemirror/theme/the-matrix.css">
+    <link rel="stylesheet" href="codemirror/theme/tomorrow-night-bright.css">
+    <link rel="stylesheet" href="codemirror/theme/tomorrow-night-eighties.css">
+    <link rel="stylesheet" href="codemirror/theme/ttcn.css">
+    <link rel="stylesheet" href="codemirror/theme/twilight.css">
+    <link rel="stylesheet" href="codemirror/theme/vibrant-ink.css">
+    <link rel="stylesheet" href="codemirror/theme/xq-dark.css">
+    <link rel="stylesheet" href="codemirror/theme/xq-light.css">
+    <link rel="stylesheet" href="codemirror/theme/yeti.css">
+    <link rel="stylesheet" href="codemirror/theme/idea.css">
+    <link rel="stylesheet" href="codemirror/theme/darcula.css">
+    <link rel="stylesheet" href="codemirror/theme/yonce.css">
+    <link rel="stylesheet" href="codemirror/theme/zenburn.css">
+    <script src="codemirror\mode\clike\clike.js"></script>
+    <script src="codemirror\mode\javascript\javascript.js"></script>
+    <script src="codemirror\mode\xml\xml.js"></script>
+    <script src="codemirror\mode\python\python.js"></script>
+    <script src="codemirror\addon\selection\active-line.js"></script>
+    <script src="codemirror\addon\edit\matchbrackets.js"></script>
+    <script src="codemirror\addon\fold\comment-fold.js"></script>
+    <script src="codemirror\addon\hint\anyword-hint.js"></script>
+    <script src="codemirror\keymap\sublime.js"></script>
+    <script src="codemirror\addon\hint\show-hint.js"></script>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js">
+    <script src="codemirror/addon/search/search.js"></script>
+    <script src="codemirror/addon/search/searchcursor.js"></script>
+    <script src="codemirror/addon/dialog/dialog.js"></script>
+    <script src="codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="codemirror/addon/edit/closebrackets.js"></script>
+    <script src="codemirror/addon/comment/comment.js"></script>
+    <script src="codemirror/addon/wrap/hardwrap.js"></script>
+    <script src="codemirror/addon/fold/foldcode.js"></script>
+    <script src="codemirror/addon/fold/brace-fold.js"></script>
 
-    </script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js">
-        </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jshint/2.11.0/jshint.js">
-    </script>
     <title>editor</title>
 </head>
 
 <body>
 
-    <textarea name="code" id="code" cols="30" rows="10"></textarea>
-    <div name="code" id="my-div" style="height: 100px;width: 500px;"></div>
+    <textarea name="code" id="code" cols="30" rows="10">Hello world!</textarea>
+
+    <p>Select a theme: <select onchange="selectTheme()" id=select>
+            <option selected>default</option>
+            <option>3024-day</option>
+            <option>3024-night</option>
+            <option>abcdef</option>
+            <option>ambiance</option>
+            <option>ayu-dark</option>
+            <option>ayu-mirage</option>
+            <option>base16-dark</option>
+            <option>base16-light</option>
+            <option>bespin</option>
+            <option>blackboard</option>
+            <option>cobalt</option>
+            <option>colorforth</option>
+            <option>darcula</option>
+            <option>dracula</option>
+            <option>duotone-dark</option>
+            <option>duotone-light</option>
+            <option>eclipse</option>
+            <option>elegant</option>
+            <option>erlang-dark</option>
+            <option>gruvbox-dark</option>
+            <option>hopscotch</option>
+            <option>icecoder</option>
+            <option>idea</option>
+            <option>isotope</option>
+            <option>lesser-dark</option>
+            <option>liquibyte</option>
+            <option>lucario</option>
+            <option>material</option>
+            <option>material-darker</option>
+            <option>material-palenight</option>
+            <option>material-ocean</option>
+            <option>mbo</option>
+            <option>mdn-like</option>
+            <option>midnight</option>
+            <option>monokai</option>
+            <option>moxer</option>
+            <option>neat</option>
+            <option>neo</option>
+            <option>night</option>
+            <option>nord</option>
+            <option>oceanic-next</option>
+            <option>panda-syntax</option>
+            <option>paraiso-dark</option>
+            <option>paraiso-light</option>
+            <option>pastel-on-dark</option>
+            <option>railscasts</option>
+            <option>rubyblue</option>
+            <option>seti</option>
+            <option>shadowfox</option>
+            <option>solarized dark</option>
+            <option>solarized light</option>
+            <option>the-matrix</option>
+            <option>tomorrow-night-bright</option>
+            <option>tomorrow-night-eighties</option>
+            <option>ttcn</option>
+            <option>twilight</option>
+            <option>vibrant-ink</option>
+            <option>xq-dark</option>
+            <option>xq-light</option>
+            <option>yeti</option>
+            <option>yonce</option>
+            <option>zenburn</option>
+        </select>
+    </p>
 
 
-    <script>
-        // var myTextArea = document.getElementById("code")
-        // var myCodeMirror = CodeMirror.fromTextArea(myTextArea);
-        // myCodeMirror.setSize(1000, 300);
-        // myCodeMirror.theme("monokai");
 
-        CodeMirror(document.querySelector('body'), {
-            lineNumbers: true,
-            tabSize: 6,
-            value: 'console.log("Hello, World");',
-            theme: 'monokai',
 
-        });
-
-    </script>
-
+    <script src="index.js"></script>
 </body>
 
 </html>
