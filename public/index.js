@@ -30,6 +30,11 @@ var outputMirror = CodeMirror.fromTextArea(outputArea, {
     theme: "monokai",
 });
 
+var map = { "Ctrl-Enter": runCode };
+codeMirror.addKeyMap(map);
+inputMirror.addKeyMap(map);
+outputMirror.addKeyMap(map);
+
 if (localStorage.getItem('code') != null) {
     codeMirror.setValue(localStorage.getItem('code'));
 }
@@ -70,9 +75,19 @@ function changeTabWidth() {
 // ------------------------- running part---------------------
 
 
+$(document).keypress(function (e) {
+    // console.log(e.ctrlKey);
+    // console.log(e.keyCode);
+    if (e.ctrlKey && e.keyCode == 10) {
+        console.log("ctrl+enter");
+        runCode();
+    }
+});
 
 
-$('#run').click(function () {
+$('#run').click(runCode);
+
+function runCode() {
     var inputValue = String(inputMirror.getValue());
     var codeData = String(codeMirror.getValue());
     outputMirror.setValue("Running...");
@@ -86,7 +101,7 @@ $('#run').click(function () {
         lang: langauge,
         status: "OK"
     }
-    console.log(send);
+    // console.log(send);
     // send = JSON.stringify(send);
 
     $.ajax({
@@ -96,9 +111,11 @@ $('#run').click(function () {
         success: function (data) {
             console.log(data.body.output);
             outputMirror.setValue(data.body.output);
+            document.getElementById("time").innerHTML ="Time: "+ data.body.cpuTime + "s   ";
+            document.getElementById("memory").innerHTML = "Memory: " +data.body.memory + "kb";
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert('error ' + textStatus + " " + errorThrown);
         }
     });
-});
+}
