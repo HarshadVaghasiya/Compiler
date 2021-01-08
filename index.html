@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="codemirror/lib/codemirror.js"></script>
     <link rel="stylesheet" href="codemirror/lib/codemirror.css">
     <link rel="stylesheet" href="codemirror/theme/monokai.css">
@@ -88,83 +90,162 @@
     <script src="codemirror/addon/edit/matchbrackets.js"></script>
     <script src="codemirror/addon/edit/closebrackets.js"></script>
     <script src="codemirror/addon/comment/comment.js"></script>
+    <script src="codemirror\addon\comment\continuecomment.js"></script>
     <script src="codemirror/addon/wrap/hardwrap.js"></script>
     <script src="codemirror/addon/fold/foldcode.js"></script>
     <script src="codemirror/addon/fold/brace-fold.js"></script>
 
     <title>editor</title>
+    <style>
+        input,
+        p {
+            margin: 1%;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="row">
+        <div style="padding-top: 8px;padding-left:20px;" class="col-sm-6">
+            <p style="margin:0;padding: 0;">
+                Theme: <select onchange="selectTheme()" id=select>
+                    <option>default</option>
+                    <option>3024-day</option>
+                    <option>3024-night</option>
+                    <option>abcdef</option>
+                    <option>ambiance</option>
+                    <option>ayu-dark</option>
+                    <option>ayu-mirage</option>
+                    <option>base16-dark</option>
+                    <option>base16-light</option>
+                    <option>bespin</option>
+                    <option>blackboard</option>
+                    <option>cobalt</option>
+                    <option>colorforth</option>
+                    <option>darcula</option>
+                    <option>dracula</option>
+                    <option>duotone-dark</option>
+                    <option>duotone-light</option>
+                    <option>eclipse</option>
+                    <option>elegant</option>
+                    <option>erlang-dark</option>
+                    <option>gruvbox-dark</option>
+                    <option>hopscotch</option>
+                    <option>icecoder</option>
+                    <option>idea</option>
+                    <option>isotope</option>
+                    <option>lesser-dark</option>
+                    <option>liquibyte</option>
+                    <option>lucario</option>
+                    <option>material</option>
+                    <option>material-darker</option>
+                    <option>material-palenight</option>
+                    <option>material-ocean</option>
+                    <option>mbo</option>
+                    <option>mdn-like</option>
+                    <option>midnight</option>
+                    <option selected>monokai</option>
+                    <option>moxer</option>
+                    <option>neat</option>
+                    <option>neo</option>
+                    <option>night</option>
+                    <option>nord</option>
+                    <option>oceanic-next</option>
+                    <option>panda-syntax</option>
+                    <option>paraiso-dark</option>
+                    <option>paraiso-light</option>
+                    <option>pastel-on-dark</option>
+                    <option>railscasts</option>
+                    <option>rubyblue</option>
+                    <option>seti</option>
+                    <option>shadowfox</option>
+                    <option>solarized dark</option>
+                    <option>solarized light</option>
+                    <option>the-matrix</option>
+                    <option>tomorrow-night-bright</option>
+                    <option>tomorrow-night-eighties</option>
+                    <option>ttcn</option>
+                    <option>twilight</option>
+                    <option>vibrant-ink</option>
+                    <option>xq-dark</option>
+                    <option>xq-light</option>
+                    <option>yeti</option>
+                    <option>yonce</option>
+                    <option>zenburn</option>
+                </select>
 
-    <textarea name="code" id="code" cols="30" rows="10">Hello world!</textarea>
+                FontSize :
+                <select onchange="changeFont()" id="fontsize">
+                    <option>6px</option>
+                    <option>7px</option>
+                    <option>8px</option>
+                    <option>9px</option>
+                    <option selected>10px</option>
+                    <option>11px</option>
+                    <option>12px</option>
+                    <option>13px</option>
+                    <option>14px</option>
+                    <option>15px</option>
+                    <option>16px</option>
+                    <option>17px</option>
+                    <option>18px</option>
+                    <option>19px</option>
+                    <option>20px</option>
 
-    <p>Select a theme: <select onchange="selectTheme()" id=select>
-            <option selected>default</option>
-            <option>3024-day</option>
-            <option>3024-night</option>
-            <option>abcdef</option>
-            <option>ambiance</option>
-            <option>ayu-dark</option>
-            <option>ayu-mirage</option>
-            <option>base16-dark</option>
-            <option>base16-light</option>
-            <option>bespin</option>
-            <option>blackboard</option>
-            <option>cobalt</option>
-            <option>colorforth</option>
-            <option>darcula</option>
-            <option>dracula</option>
-            <option>duotone-dark</option>
-            <option>duotone-light</option>
-            <option>eclipse</option>
-            <option>elegant</option>
-            <option>erlang-dark</option>
-            <option>gruvbox-dark</option>
-            <option>hopscotch</option>
-            <option>icecoder</option>
-            <option>idea</option>
-            <option>isotope</option>
-            <option>lesser-dark</option>
-            <option>liquibyte</option>
-            <option>lucario</option>
-            <option>material</option>
-            <option>material-darker</option>
-            <option>material-palenight</option>
-            <option>material-ocean</option>
-            <option>mbo</option>
-            <option>mdn-like</option>
-            <option>midnight</option>
-            <option>monokai</option>
-            <option>moxer</option>
-            <option>neat</option>
-            <option>neo</option>
-            <option>night</option>
-            <option>nord</option>
-            <option>oceanic-next</option>
-            <option>panda-syntax</option>
-            <option>paraiso-dark</option>
-            <option>paraiso-light</option>
-            <option>pastel-on-dark</option>
-            <option>railscasts</option>
-            <option>rubyblue</option>
-            <option>seti</option>
-            <option>shadowfox</option>
-            <option>solarized dark</option>
-            <option>solarized light</option>
-            <option>the-matrix</option>
-            <option>tomorrow-night-bright</option>
-            <option>tomorrow-night-eighties</option>
-            <option>ttcn</option>
-            <option>twilight</option>
-            <option>vibrant-ink</option>
-            <option>xq-dark</option>
-            <option>xq-light</option>
-            <option>yeti</option>
-            <option>yonce</option>
-            <option>zenburn</option>
-        </select>
-    </p>
+                </select>
+                Tab-width:
+                <select onchange="changeTabWidth()" id="tabWidth">
+                    <option>2</option>
+                    <option selected>4</option>
+                    <option>6</option>
+                    <option>8</option>
+                </select>
+                </select>
+                Language:
+                <select onchange="changeTabWidth()" id="lang">
+                    <option>java</option>
+                    <option>cpp</option>
+                    <option>cpp14</option>
+                    <option selected>cpp17</option>
+                    <option>python2</option>
+                    <option>python3</option>
+                </select>
+            </p>
+
+
+        </div>
+        <div class="col-sm-6">
+            <input class="btn btn-sm btn-success" id="run" type="submit" value="Run (Ctrl + Enter)">
+            <input onclick="changeTmp()" class="btn btn-sm btn-primary" name="saveTmp" type="submit"
+                value="Save as Template">
+        </div>
+    </div>
+
+
+
+    <textarea name="code" id="code">#include <iostream>
+
+        int main()
+        {
+            std::cout << "Hello, World" << std::endl;
+            return 0;
+        }
+        </textarea>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <h5> &nbsp;&nbsp;Input</h5>
+            <textarea name="input" id="input">0</textarea>
+        </div>
+        <div class="col-md-6">
+            <h5> &nbsp;&nbsp;Output</h5>
+            <textarea name="output" id="output">0</textarea>
+        </div>
+    </div>
+
+
+
 
 
 
