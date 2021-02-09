@@ -10,5 +10,5 @@ You can set your defult templet so you can use it letter.
 
 You can use short cut of sublime in editor and Ctrl + Enter to run code.
 
-here is link to Node.ks app : https://arcane-bastion-33857.herokuapp.com/
+here is link to Node.js app : https://arcane-bastion-33857.herokuapp.com/
 
