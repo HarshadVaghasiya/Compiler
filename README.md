@@ -1,6 +1,6 @@
 # Compiler
-This is simple complier made using node.js and jdoodle API and codemirror editor module which support in textarea
-In this you can complile your code and get output.
+This is simple compiler made using node.js and jdoodle API and codemirror editor module which support in textarea
+In this you can compiler your code and get output.
 
 You can use many languages like c++, java, python etc.
 
